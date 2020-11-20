@@ -1,0 +1,752 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>About Me</title><style>
+    /* webkit printing magic: print all background colors */
+    html {
+        -webkit-print-color-adjust: exact;
+    }
+    * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    @media only screen {
+        body {
+            margin: 2em auto;
+            max-width: 900px;
+            color: rgb(55, 53, 47);
+        }
+    }
+    
+    body {
+        line-height: 1.5;
+        /*white-space: pre-wrap;*/
+    }
+    
+    a,
+    a.visited {
+        color: inherit;
+        text-decoration: underline;
+    }
+    
+    .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+    }
+    
+    h1,
+    h2,
+    h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+    }
+    
+    h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+    }
+    
+    .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+    }
+    
+    .callout {
+        border-radius: 3px;
+        padding: 1rem;
+    }
+    
+    figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+    }
+    
+    figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+    }
+    
+    mark {
+        background-color: transparent;
+    }
+    
+    .indented {
+        padding-left: 1.5em;
+    }
+    
+    hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    @media only print {
+        img {
+            max-height: 100vh;
+            object-fit: contain;
+        }
+    }
+    
+    @page {
+        margin: 1in;
+    }
+    
+    .collection-content {
+        font-size: 0.875rem;
+    }
+    
+    .column-list {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .column {
+        padding: 0 1em;
+    }
+    
+    .column:first-child {
+        padding-left: 0;
+    }
+    
+    .column:last-child {
+        padding-right: 0;
+    }
+    
+    .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+    }
+    
+    .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+    }
+    
+    .table_of_contents-indent-2 {
+        margin-left: 3rem;
+    }
+    
+    .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+    }
+    
+    .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+    }
+    
+    table,
+    th,
+    td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+    }
+    
+    table {
+        border-left: none;
+        border-right: none;
+    }
+    
+    th,
+    td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+    }
+    
+    th {
+        color: rgba(55, 53, 47, 0.6);
+    }
+    
+    ol,
+    ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+    }
+    
+    li > ol:first-child,
+    li > ul:first-child {
+        margin-block-start: 0.6em;
+    }
+    
+    ul > li {
+        list-style: disc;
+    }
+    
+    ul.to-do-list {
+        text-indent: -1.7em;
+    }
+    
+    ul.to-do-list > li {
+        list-style: none;
+    }
+    
+    .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+    }
+    
+    ul.toggle > li {
+        list-style: none;
+    }
+    
+    ul {
+        padding-inline-start: 1.7em;
+    }
+    
+    ul > li {
+        padding-left: 0.1em;
+    }
+    
+    ol {
+        padding-inline-start: 1.6em;
+    }
+    
+    ol > li {
+        padding-left: 0.2em;
+    }
+    
+    .mono ol {
+        padding-inline-start: 2em;
+    }
+    
+    .mono ol > li {
+        text-indent: -0.4em;
+    }
+    
+    .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+    }
+    
+    /* Indent toggle children */
+    .toggle > li > details {
+        padding-left: 1.7em;
+    }
+    
+    .toggle > li > details > summary {
+        margin-left: -1.1em;
+    }
+    
+    .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+    }
+    
+    .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+    }
+    
+    time {
+        opacity: 0.5;
+    }
+    
+    .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+    }
+    
+    img.icon {
+        border-radius: 3px;
+    }
+    
+    .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+    }
+    
+    .user-icon-inner {
+        font-size: 0.8em;
+    }
+    
+    .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+    }
+    
+    .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        height: 30vh;
+        padding-top: 2.5rem;
+    }
+    
+    .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+    }
+    
+    .page-header-icon img {
+        border-radius: 3px;
+    }
+    
+    .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+    }
+    
+    p > .user {
+        opacity: 0.5;
+    }
+    
+    td > .user,
+    td > time {
+        white-space: nowrap;
+    }
+    
+    input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+    }
+    
+    p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+    }
+    
+    .code,
+    code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+    }
+    
+    code {
+        color: #eb5757;
+    }
+    
+    .code {
+        padding: 1.5em 1em;
+    }
+    
+    .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+    }
+    
+    .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+    }
+    
+    blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+    }
+    
+    .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+    }
+    
+    .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+    }
+    
+    .bookmark-text {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+    }
+    
+    .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+    }
+    
+    .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+    }
+    
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+    .code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+    .serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+    .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+    .pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+    
+    .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+    
+    .pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+    
+    .pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+    
+    .highlight-default {
+    }
+    .highlight-gray {
+        color: rgb(155,154,151);
+    }
+    .highlight-brown {
+        color: rgb(100,71,58);
+    }
+    .highlight-orange {
+        color: rgb(217,115,13);
+    }
+    .highlight-yellow {
+        color: rgb(223,171,1);
+    }
+    .highlight-teal {
+        color: rgb(15,123,108);
+    }
+    .highlight-blue {
+        color: rgb(11,110,153);
+    }
+    .highlight-purple {
+        color: rgb(105,64,165);
+    }
+    .highlight-pink {
+        color: rgb(173,26,114);
+    }
+    .highlight-red {
+        color: rgb(224,62,62);
+    }
+    .highlight-gray_background {
+        background: rgb(235,236,237);
+    }
+    .highlight-brown_background {
+        background: rgb(233,229,227);
+    }
+    .highlight-orange_background {
+        background: rgb(250,235,221);
+    }
+    .highlight-yellow_background {
+        background: rgb(251,243,219);
+    }
+    .highlight-teal_background {
+        background: rgb(221,237,234);
+    }
+    .highlight-blue_background {
+        background: rgb(221,235,241);
+    }
+    .highlight-purple_background {
+        background: rgb(234,228,242);
+    }
+    .highlight-pink_background {
+        background: rgb(244,223,235);
+    }
+    .highlight-red_background {
+        background: rgb(251,228,228);
+    }
+    .block-color-default {
+        color: inherit;
+        fill: inherit;
+    }
+    .block-color-gray {
+        color: rgba(55, 53, 47, 0.6);
+        fill: rgba(55, 53, 47, 0.6);
+    }
+    .block-color-brown {
+        color: rgb(100,71,58);
+        fill: rgb(100,71,58);
+    }
+    .block-color-orange {
+        color: rgb(217,115,13);
+        fill: rgb(217,115,13);
+    }
+    .block-color-yellow {
+        color: rgb(223,171,1);
+        fill: rgb(223,171,1);
+    }
+    .block-color-teal {
+        color: rgb(15,123,108);
+        fill: rgb(15,123,108);
+    }
+    .block-color-blue {
+        color: rgb(11,110,153);
+        fill: rgb(11,110,153);
+    }
+    .block-color-purple {
+        color: rgb(105,64,165);
+        fill: rgb(105,64,165);
+    }
+    .block-color-pink {
+        color: rgb(173,26,114);
+        fill: rgb(173,26,114);
+    }
+    .block-color-red {
+        color: rgb(224,62,62);
+        fill: rgb(224,62,62);
+    }
+    .block-color-gray_background {
+        background: rgb(235,236,237);
+    }
+    .block-color-brown_background {
+        background: rgb(233,229,227);
+    }
+    .block-color-orange_background {
+        background: rgb(250,235,221);
+    }
+    .block-color-yellow_background {
+        background: rgb(251,243,219);
+    }
+    .block-color-teal_background {
+        background: rgb(221,237,234);
+    }
+    .block-color-blue_background {
+        background: rgb(221,235,241);
+    }
+    .block-color-purple_background {
+        background: rgb(234,228,242);
+    }
+    .block-color-pink_background {
+        background: rgb(244,223,235);
+    }
+    .block-color-red_background {
+        background: rgb(251,228,228);
+    }
+    .select-value-color-default { background-color: rgba(206,205,202,0.5); }
+    .select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+    .select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+    .select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+    .select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+    .select-value-color-green { background-color: rgba(0,135,107,0.2); }
+    .select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+    .select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+    .select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+    .select-value-color-red { background-color: rgba(255,0,26,0.2); }
+    
+    .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+    }
+    
+    .checkbox-on {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+    
+    .checkbox-off {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+    	/*Nav Style*/
+/*Strip the ul of padding and list styling*/
+ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    /*position: absolute;*/
+}
+/*Create a horizontal list with spacing*/
+li {
+    display:inline-block;
+    float:left;
+    margin-right: 1px;
+}
+/*Style for menu links*/
+li a {
+    font-weight: 600;
+    display:block;
+    min-width:140px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-family:  'Inter-SemiBold', Helvetica, Arial, serif;
+    color: #000000;
+    background: #ffffff;
+    text-decoration: none;
+}
+/*Hover state for top level links*/
+li:hover a {
+    background: #478BCA;
+}
+/*Style for dropdown links*/
+li:hover ul a {
+    background: #f3f3f3;
+    color: #2f3036;
+    height: 40px;
+    line-height: 40px;
+}
+/*Hover state for dropdown links*/
+li:hover ul a:hover {
+    background: #478BCA;
+    color: #fff;
+}
+/*Hide dropdown links until they are needed*/
+li ul {
+    display: none;
+}
+/*Make dropdown links vertical*/
+li ul li {
+    display: block;
+    float: none;
+}
+/*Prevent text wrapping*/
+li ul li a {
+    width: auto;
+    min-width: 100px;
+    padding: 0 20px;
+}
+/*Display the dropdown on hover*/
+ul li a:hover + .hidden, .hidden:hover {
+    display: block;
+}
+/*Style 'show menu' label button and hide it by default*/
+.show-menu {
+    font-family:  'Inter-SemiBold', Helvetica, Arial, serif;
+    text-decoration: none;
+    color: #fff;
+    background: #ececec;
+    text-align: center;
+    padding: 10px 0;
+    display: none;
+}
+/*Hide checkbox*/
+input[type=checkbox]{
+    display: none;
+}
+/*Show menu when invisible checkbox is checked*/
+input[type=checkbox]:checked ~ #menu{
+    display: block;
+}
+/*Responsive Styles*/
+@media screen and (max-width : 760px){
+    /*Make dropdown links appear inline*/
+    ul {
+        position: static;
+        display: none;
+    }
+    /*Create vertical spacing*/
+    li {
+        margin-bottom: 1px;
+    }
+    /*Make all menu links full width*/
+    ul li, li a {
+        width: 100%;
+    }
+    /*Display 'show menu' link*/
+    .show-menu {
+        display:block;
+    }
+}
+    </style></head><body>
+    		<!--Header-->
+		<label for="show-menu" class="show-menu">➕</label>
+		<input type="checkbox" id="show-menu" role="button">
+		<ul id="menu">
+		  <li><a href="index.html">Home</a></li>
+		  <li>
+			<a href="about.html">About</a>
+	  
+		  </li>
+		  <li>
+			<a href="#">Writing </a>
+	  
+		  </li>
+		  <li><a href="#">Resources</a></li>
+		  <li>
+			 <a href="https://rosy.substack.com" target="_blank">
+		 
+			<div class="subscribe-1964880 valign-text-middle font-class-2 border-class-1">Subscribe</div>
+		  </div></a
+		>
+		  </li>
+		</ul>
+        <article id="aee1f3bb-8449-40a8-b6b6-8c0a64aa99a2" class="page serif"><header><img class="page-cover-image" src="About%20Me%20e2378fb34ad347fb8c285e3da9ce0b78/IMG_1905.jpg" style="object-position:center 41.03%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">💁🏻‍♀️</span></div><h1 class="page-title">About Me</h1></header><div class="page-body"><p id="6462cbf0-f7a0-4f26-b161-14d41c6b2c86" class="">Hey, I&#x27;m Rosy. I’m a product designer, UX Designer, and Udemy instructor, currently living in Toronto. My <a href="https://www.udemy.com/course/design-to-code-turning-email-designs-into-html-and-css/">course</a> &quot;Design to Code: Turning Email Designs into HTML and CSS&quot; crossed 5,000+ students enrolled. I&#x27;m a top writer in Design on <a href="http://medium.com/@rosyhnguyen">Medium</a> with top featured design articles.</p><div id="12e062a5-373f-4805-9e71-0a4a447da289" class="column-list"><div id="9a9b2c2a-def6-4af4-b002-95e4707a6fbd" style="width:50%" class="column"><p id="5730febb-66de-4bd5-82a6-ed02b13759c4" class="">Right now I’m designing websites and a mobile app at QClub - a Canadian startup. Before QClub, I worked as Community Coordinator at DesignX - the fastest growing design community in North America. </p><p id="dba28017-982f-43c8-924e-d5430db992d8" class="">
+    </p></div><div id="866423bc-2068-4b91-b299-a41791074675" style="width:50%" class="column"><figure id="e2378fb3-4ad3-47fb-8c28-5e3da9ce0b78" class="image"><a href="About%20Me%20e2378fb34ad347fb8c285e3da9ce0b78/IMG_1995.png"><img style="width:743px" src="About%20Me%20e2378fb34ad347fb8c285e3da9ce0b78/IMG_1995.png"/></a><figcaption>A town hall meeting with my buddies at DesignX</figcaption></figure></div></div><p id="2edee95f-c084-486f-b51f-aa4e2b3c8e87" class="">While working at DesignX, I tutored front-end development at Seneca College, Toronto and mentored many design students. I have a serious interest in supporting early stage designers.</p><div id="ff415191-1f3f-4f64-b718-8193d10d0fa2" class="column-list"><div id="af5f193c-53a7-4da9-b652-a40bf8461075" style="width:50%" class="column"><figure id="c46b7dfc-3ebf-402e-b17c-d759054a02e8" class="image"><a href="https://cdn.techinasia.com/wp-content/uploads/2016/10/Hallway_Seg.jpg"><img src="https://cdn.techinasia.com/wp-content/uploads/2016/10/Hallway_Seg.jpg"/></a><figcaption>Hoverboard in the grass-covered office. So cool!</figcaption></figure></div><div id="d78e7f89-55de-4f87-9944-3e6f519107ef" style="width:50%" class="column"><p id="524f5203-91ca-463d-a0e9-453cc989a365" class="">Before moving to Canada, I worked as Product Designer and Product Manager in Malaysia and Vietnam. My previous company was a cool place where I could ride on a hoverboard in the grass-covered office. </p><p id="6adb0593-fddc-4702-8b5f-844705cf795a" class="">
+    </p></div></div><p id="7db1fee5-5e4e-44f7-b71f-5f8984281bd0" class="">I also founded <strong>Tech Designers</strong> where I share resources for product design and UX design. </p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="52104439-c629-44bf-b3bc-2d09c12ad5a2"><div style="font-size:1.5em"><span class="icon">🔥</span></div><div style="width:100%">I aim to show you how to use tools and software for web and app design as well as teach you professional skills to help you get hired! </div></figure><p id="a44c16a5-e6b1-4a22-859a-9907dc345dc0" class="">If you&#x27;re looking to begin a career in product design, subscribe to my channel and let me help you achieve your goal! </p><div id="3ec2b1e6-644a-4397-b9c2-e181234f3a74" class="column-list"><div id="a62e48f5-a93e-4b0f-a2c2-482ee410e610" style="width:16.666666666666668%" class="column"><p id="d6fa2c36-7519-4df2-ac9c-9690dda41583" class="">1️⃣ <mark class="highlight-blue"><a href="https://twitter.com/tech_designers">Twitter</a></mark><mark class="highlight-blue"> </mark></p></div><div id="855f13ef-91e4-4e8e-be18-a9356d896196" style="width:16.666666666666664%" class="column"><p id="4b740df2-ef08-4e58-97dc-b2b429c40ac8" class="">2️⃣ <mark class="highlight-blue"><a href="https://www.facebook.com/techdesigners.net">Facebook</a></mark></p></div><div id="01c39587-5a38-4d37-b56d-ee98e5dc0f51" style="width:16.66666666666667%" class="column"><p id="60c86201-fcbe-47bd-8a35-9ac06fca2086" class="">3️⃣ <mark class="highlight-blue"><a href="https://medium.com/tech-designers">Medium</a></mark></p></div><div id="38d4a2fd-acf9-4df3-857e-115519dffaf6" style="width:16.666666666666668%" class="column"><p id="0bcf8995-4cd5-4ccc-beca-a09701f4a23b" class="">4️⃣ <mark class="highlight-blue"><a href="https://www.pinterest.ca/rosylittleshop/_shop/">Pinterest</a></mark></p></div><div id="5194fb14-ced0-4886-9f7d-f99ed5d6a6b3" style="width:16.666666666666668%" class="column"><p id="63650ede-9f8d-4009-b61c-af48924fa114" class="">5️⃣ <mark class="highlight-blue"><a href="https://www.youtube.com/channel/UCG3oapqOyhiAij0LdSMSwwA/about?view_as=subscriber">Youtube</a></mark></p></div><div id="72e08876-9b94-4ffe-8d40-c41af32c2e74" style="width:16.666666666666664%" class="column"><p id="41aa02bc-7ca5-4e79-8952-11b800db578d" class="">6️⃣ <mark class="highlight-blue"><a href="https://github.com/rosyhnguyen">Github</a></mark></p></div></div><p id="7f1ec53d-18ec-41bd-bfaa-e84d625cffbc" class=""><strong>Ask Me Anything on Quora</strong></p><p id="988df22b-50be-4910-bfd8-c6415e1bd4c6" class="">Just for fun! 1-on-1 on Product Design and UX Designer</p><figure id="b7b33cf1-84b3-473e-8655-b22414a8127a"><a href="https://www.quora.com/profile/Rosy-H-Nguyen" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Rosy H Nguyen</div><div class="bookmark-description">Rosy H Nguyen, Top Writer in Design @ Medium. Community Coordinator DesignX. Join my space Tech Designers and ask me anything about design and front-end development. Want to become a space contributor? Just let me know! 🖋 Top Writer in Design on ...</div></div><div class="bookmark-href"><img src="https://qsf.fs.quoracdn.net/-4-images.favicon.ico-26-ebf6a9e7f7b4576d.ico" class="icon bookmark-icon"/>https://www.quora.com/profile/Rosy-H-Nguyen</div></div><img src="https://qph.fs.quoracdn.net/main-thumb-197101290-200-xknhnnbmelwskabotiakwwzxrsbtdekl.jpeg" class="bookmark-image"/></a></figure></div></article></body></html>
